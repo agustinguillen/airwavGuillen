@@ -1,7 +1,8 @@
 import './NavBar.scss';
-import Logo from './../assets/img/airwav.png';
+import Logo from './../../assets/img/airwav.png';
 import { Navbar, Nav, NavDropdown, Button } from 'react-bootstrap';
-import { FaShoppingCart } from 'react-icons/fa';
+import CartWidget from './CartWidget';
+
 
 function NavBar(){
     return (
@@ -24,7 +25,7 @@ function NavBar(){
                 <Nav.Link href="#home" className="menu-item">Contacto</Nav.Link>
                 <Nav.Link href="#link" className="menu-item">Quiénes somos</Nav.Link>
             </Nav>
-            <Button variant="warning" className="btn-menu btn-shoppingCart"><FaShoppingCart /></Button>
+            <CartWidget></CartWidget>
             <Button variant="dark" className="btn-menu btn-register">Registrate</Button>
             <Button variant="outline-warning" className="btn-menu btn-login">Iniciar Sesión</Button>
             </Navbar.Collapse>
