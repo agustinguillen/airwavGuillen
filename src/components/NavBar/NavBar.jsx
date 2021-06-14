@@ -1,7 +1,7 @@
 import './NavBar.scss';
 import Logo from './../../assets/img/airwav.png';
 import { Navbar, Nav, NavDropdown, Button } from 'react-bootstrap';
-import CartWidget from './CartWidget';
+import CartWidget from './../CartWidget/CartWidget';
 
 
 function NavBar(){
@@ -25,7 +25,7 @@ function NavBar(){
                 <Nav.Link href="#home" className="menu-item">Contacto</Nav.Link>
                 <Nav.Link href="#link" className="menu-item">Quiénes somos</Nav.Link>
             </Nav>
-            <CartWidget></CartWidget>
+            <CartWidget />
             <Button variant="dark" className="btn-menu btn-register">Registrate</Button>
             <Button variant="outline-warning" className="btn-menu btn-login">Iniciar Sesión</Button>
             </Navbar.Collapse>
