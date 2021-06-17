@@ -1,21 +1,29 @@
 import './Item.scss';
 import ItemCount from './../ItemCount/ItemCount';
 import { Card } from 'react-bootstrap';
-import product from './../../assets/img/fenderstrato.jpg';
 
-function Item (){
+const Item = ({id, productName, price, image, stock}) => {
         const onAdd = (amount) =>{
             console.log(`Agregar al carrito ${amount}`);
         }
+
+        const cardImage = {
+            objectFit: 'cover',
+            width: '14rem',
+            height: '14rem',
+            padding: '2rem'
+        }
+        
         return (
             <>
                 <Card style={{ width: '18rem', margin: '2rem' }}>
-                    <Card.Img variant="top" src={product} style={{ height: '50%', width: '50%' }} />
+                        <Card.Img variant="top" src={image} style={cardImage}/>
                     <Card.Body>
-                        <Card.Title>Producto</Card.Title>
-                        <Card.Text>Precio: $19.999</Card.Text>
+                        <Card.Title>{productName}</Card.Title>
+                        <Card.Text>Precio: ${price}</Card.Text>
+                        <Card.Text>Stock: {stock}</Card.Text>
                         <Card.Text>Cantidad:</Card.Text>
-                        <ItemCount stock='5' initial='1' onAdd={onAdd}/>
+                        <ItemCount stock={stock} initial='1' onAdd={onAdd}/>
                     </Card.Body>
                 </Card>
             </>

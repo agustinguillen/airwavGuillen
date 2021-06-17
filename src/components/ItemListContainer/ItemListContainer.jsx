@@ -1,13 +1,12 @@
 import './ItemListContainer.scss';
-import Item from './../Item/Item'
+import ItemList from './../ItemList/ItemList';
 
-
-function ItemListContainer() {
+const ItemListContainer = () => {
     return (
         <>
             <div className="itemlist-container text-center">
-                <h3>ItemListCointainer</h3>
-                <Item />
+                <h3>Productos</h3>
+                <ItemList />
             </div>
         </>
     )

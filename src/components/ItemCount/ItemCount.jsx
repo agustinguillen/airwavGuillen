@@ -3,7 +3,7 @@ import { Button } from 'react-bootstrap';
 import { useState } from 'react';
 import { FaPlus, FaMinus } from 'react-icons/fa';
 
-function Item ({stock, initial, onAdd}){
+const Item = ({stock, initial, onAdd}) => {
         const [amount, setAmount] = useState(Number(initial));
 
 

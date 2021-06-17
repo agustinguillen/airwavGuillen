@@ -4,7 +4,7 @@ import { Navbar, Nav, NavDropdown, Button } from 'react-bootstrap';
 import CartWidget from './../CartWidget/CartWidget';
 
 
-function NavBar(){
+const NavBar = () => {
     return (
         <>
             <Navbar bg="light" expand="lg" className="navbar">

@@ -2,7 +2,7 @@ import './CartWidget.scss';
 import { Button } from 'react-bootstrap';
 import { FaShoppingCart } from 'react-icons/fa';
 
-function CartWidget(){
+const CartWidget = () => {
     return (
         <>
             <Button variant="warning" className="btn-cartWidget"><FaShoppingCart /></Button>
