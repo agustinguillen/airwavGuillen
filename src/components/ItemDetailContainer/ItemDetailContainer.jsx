@@ -1,13 +1,12 @@
-import './ItemList.scss';
-import Item from './../Item/Item';
+import './ItemDetailContainer.scss';
+import ItemDetail from '../ItemDetail/ItemDetail';
 import { useEffect, useState } from 'react';
 
-const ItemList = () => {
-
-    const [products, setProducts] = useState([]);
+const ItemDetailContainer = ({id}) => {
+    const [product, setProduct] = useState([]);
 
     useEffect(() => {
-        const getProducts = new Promise((resolve, reject)=>{
+        const getProduct = new Promise((resolve, reject)=>{
             setTimeout(()=>{
                 resolve([
                     {id:'1', name:'Fender Stratocaster', price:'200000', image:'https://res.cloudinary.com/vaporbox/image/upload/v1623960597/airwav/789906-MLA31575501368_072019-F_ec3ys4.jpg', stock: '15'},
@@ -17,28 +16,19 @@ const ItemList = () => {
                 ])
             }, 2000)
         })     
-        getProducts.then((result)=>{
-            setProducts(result)
+        getProduct.then((result)=>{
+            let item = result.find(x => x.id === id)
+            setProduct(item)
         })
-    }, [])
-
+    }, [id])
 
     return (
         <>
-            <div className="d-flex">
-                {products.map(
-                    product => <Item 
-                                    key={product?.id}
-                                    id={product?.id} 
-                                    productName={product?.name} 
-                                    price={product?.price} 
-                                    image={product?.image} 
-                                    stock={product?.stock}
-                                />
-                )}
+            <div className="itemDetailContainer text-center">
+                <ItemDetail item={product}/>
             </div>
         </>
     )
 }
 
-export default ItemList;
+export default ItemDetailContainer;
