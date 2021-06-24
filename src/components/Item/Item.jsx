@@ -1,35 +1,44 @@
 import './Item.scss';
-import ItemCount from './../ItemCount/ItemCount';
 import { Card } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
-const Item = ({id, productName, price, image, stock}) => {
-        const onAdd = (amount) =>{
-            console.log(`Agregar al carrito ${amount}`);
-        }
+import { useState } from 'react';
 
-        const cardImage = {
-            objectFit: 'cover',
-            width: '14rem',
-            height: '14rem',
-            padding: '2rem'
-        }
+const Item = ({id, productName, price, image, stock}) => {
         
+        const [hover, setHover] = useState(false);
+
         return (
             <>
-                <Card style={{ width: '18rem', margin: '2rem' }}>
-                    <Link to={`/detail/${id}`}>
-                        <Card.Img variant="top" src={image} style={cardImage}/>
-                    </Link>
-                        <Card.Body>
-                            <Link to={`/detail/${id}`}>
+                <Link to={`/detail/${id}`} style={{textDecoration: 'none', color:'grey'}}>
+                    <Card style={{ width: '16em', margin: '2rem', borderRadius: '25px' }} className='item'
+                        onMouseEnter={()=>setHover(true)}
+                        onMouseLeave={()=>setHover(false)}
+                    >
+                        <div className="d-flex flex-column justify-content-center">
+                            <Card.Img variant="top" src={image} style={{
+                                objectFit: 'cover',
+                                width: '14rem',
+                                height: '14rem',
+                                padding: '2rem'
+                            }}/>
+                            <Card.Body>
                                 <Card.Title>{productName}</Card.Title>
-                            </Link>
-                            <Card.Text>Precio: ${price}</Card.Text>
-                            <Card.Text>Stock: {stock}</Card.Text>
-                            <Card.Text>Cantidad:</Card.Text>
-                        </Card.Body>
-                    <ItemCount stock={stock} initial='1' onAdd={onAdd}/>
-                </Card>
+                                {hover && (
+                                    <Card.Text>
+                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+                                    </Card.Text>) }                                         
+                                <Card.Text style={{
+                                    color: 'black', 
+                                    fontWeight:'bold', 
+                                    fontSize:'1.5rem', 
+                                    textDecoration:'none'
+                                }}>
+                                    ${price}
+                                </Card.Text>
+                            </Card.Body>
+                        </div>
+                    </Card>
+                </Link>
             </>
         )
 }

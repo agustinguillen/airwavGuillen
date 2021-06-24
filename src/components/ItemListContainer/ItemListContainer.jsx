@@ -1,12 +1,12 @@
 import './ItemListContainer.scss';
 import ItemList from './../ItemList/ItemList';
 
-const ItemListContainer = () => {
+const ItemListContainer = ({catId}) => {
     return (
         <>
             <div className="itemlist-container text-center">
                 <h3>Productos</h3>
-                <ItemList />
+                <ItemList catId={catId} />
             </div>
         </>
     )
