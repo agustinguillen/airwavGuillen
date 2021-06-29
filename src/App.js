@@ -6,18 +6,21 @@ import ProductCategory from './views/ProductCategory/ProductCategory';
 import Contact from './views/Contact/Contact';
 import About from './views/About/About';
 import ProductDetail from './views/ProductDetail/ProductDetail';
+import {CartProvider} from './CartContext';
 
 function App() {
   return (
     <Router>
-      <NavBar></NavBar>
-      <Switch>
-        <Route path="/" exact component={Home}/>
-        <Route path="/contact" component={Contact}/>
-        <Route path="/about" component={About}/>
-        <Route path="/detail/:id" component={ProductDetail}/>
-        <Route path="/products/:catId" component={ProductCategory}/>
-      </Switch>
+      <CartProvider>
+        <NavBar></NavBar>
+        <Switch>
+          <Route path="/" exact component={Home}/>
+          <Route path="/contact" component={Contact}/>
+          <Route path="/about" component={About}/>
+          <Route path="/detail/:id" component={ProductDetail}/>
+          <Route path="/products/:catId" component={ProductCategory}/>
+        </Switch>
+      </CartProvider>
     </Router>
   );
 }

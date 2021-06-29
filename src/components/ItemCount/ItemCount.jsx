@@ -6,7 +6,6 @@ import { FaPlus, FaMinus } from 'react-icons/fa';
 const Item = ({stock, initial, onAdd}) => {
         const [amount, setAmount] = useState(Number(initial));
 
-
         return (
             <>
                 <div className="container-amount">
