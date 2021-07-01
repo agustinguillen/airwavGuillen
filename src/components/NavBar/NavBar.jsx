@@ -9,7 +9,7 @@ const NavBar = () => {
     return (
         <>
             <Navbar bg="light" expand="lg" className="navbar">
-                <Link to="/" className="navbar-brand">
+                <Link to="/" className="navbar-brand d-flex">
                     <img src={Logo} alt="Logo de Airwav" className="logo"/>
                     <Navbar.Brand className="logo-brand">Airwav</Navbar.Brand>
                 </Link>

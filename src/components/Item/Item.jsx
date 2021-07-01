@@ -17,16 +17,18 @@ const Item = ({id, productName, price, image, stock}) => {
                         <div className="d-flex flex-column justify-content-center">
                             <Card.Img variant="top" src={image} style={{
                                 objectFit: 'cover',
-                                width: '14rem',
-                                height: '14rem',
-                                padding: '2rem'
+                                width: '15.9em',
+                                height: '15.9em',
+                                borderTopLeftRadius: '25px',
+                                borderTopRightRadius: '25px'
                             }}/>
                             <Card.Body>
                                 <Card.Title>{productName}</Card.Title>
                                 {hover && (
                                     <Card.Text>
                                         Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-                                    </Card.Text>) }                                         
+                                    </Card.Text>
+                                )}                                         
                                 <Card.Text style={{
                                     color: 'black', 
                                     fontWeight:'bold', 

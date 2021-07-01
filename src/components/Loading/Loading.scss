@@ -2,4 +2,9 @@
     margin-top: 25vh;
     width: 5vw;
     height: 5vw;
+    @media (max-width: 768px) {
+        margin-top: 35vh;
+        width: 20vw;
+        height: 20vw;
+    }
 }

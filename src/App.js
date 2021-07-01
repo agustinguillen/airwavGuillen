@@ -6,7 +6,7 @@ import ProductCategory from './views/ProductCategory/ProductCategory';
 import Contact from './views/Contact/Contact';
 import About from './views/About/About';
 import ProductDetail from './views/ProductDetail/ProductDetail';
-import {CartProvider} from './CartContext';
+import {CartProvider} from './context/cart/CartContext';
 
 function App() {
   return (

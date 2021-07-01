@@ -5,11 +5,12 @@ import Loading from '../Loading/Loading';
 import { useState } from 'react';
 import { Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
-import { CartContext } from '../../CartContext';
+import { CartContext } from './../../context/cart/CartContext'
 
 const ItemDetail = ({item}) => {
     
     const {addItem} = useContext(CartContext);
+    
 
     const [amount, setAmount] = useState(Number(0));
     
