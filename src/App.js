@@ -6,12 +6,10 @@ import ProductCategory from './views/ProductCategory/ProductCategory';
 import Contact from './views/Contact/Contact';
 import About from './views/About/About';
 import ProductDetail from './views/ProductDetail/ProductDetail';
-import {CartProvider} from './context/cart/CartContext';
 
 function App() {
   return (
     <Router>
-      <CartProvider>
         <NavBar></NavBar>
         <Switch>
           <Route path="/" exact component={Home}/>
@@ -20,7 +18,6 @@ function App() {
           <Route path="/detail/:id" component={ProductDetail}/>
           <Route path="/products/:catId" component={ProductCategory}/>
         </Switch>
-      </CartProvider>
     </Router>
   );
 }

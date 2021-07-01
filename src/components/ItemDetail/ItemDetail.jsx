@@ -1,24 +1,17 @@
 import './ItemDetail.scss';
-import { useContext } from 'react';
 import ItemCount from '../ItemCount/ItemCount';
 import Loading from '../Loading/Loading';
 import { useState } from 'react';
 import { Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
-import { CartContext } from './../../context/cart/CartContext'
 
 const ItemDetail = ({item}) => {
-    
-    const {addItem} = useContext(CartContext);
-    
 
     const [amount, setAmount] = useState(Number(0));
     
     const onAdd = (amount) =>{
         setAmount(amount);
-        addItem({item, quantity: amount})
     }
-    
 
     return (
         <>
@@ -39,7 +32,7 @@ const ItemDetail = ({item}) => {
                             Nam id magna eu metus finibus finibus et sit amet magna. 
                             Mauris nibh nunc, egestas vitae vehicula vel, sollicitudin nec tellus. 
                         </p>
-                        <ItemCount stock={item?.stock} initial='1' onAdd={onAdd}/>
+                        <ItemCount item={item} stock={item?.stock} initial='1' onAdd={onAdd}/>
                         {amount > 0 && 
                             <Link to="/cart">
                                 <Button variant="dark" className="mx-2">Terminar mi compra</Button>
