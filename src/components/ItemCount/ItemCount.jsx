@@ -11,7 +11,7 @@ const Item = ({item, stock, initial, onAdd}) => {
 
     const add = () =>{
         onAdd(amount)
-        addToCart(item)
+        addToCart(item, amount)
     }
 
     return (

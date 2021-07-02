@@ -9,10 +9,30 @@ const CartReducer = (state, action) =>{
            }          
         }
         case ADD_TO_CART: {
-            return {
-                ...state,
-                cartItems: [...state.cartItems, action.payload]
-            }          
+            let totalItems;
+            let totalPrice;
+            let item = action.payload.item;
+            let checkCartItems = state.cartItems.find(product => product.item.id === item.id);
+
+            if(state.cartItems.length){
+                let quantities = state.cartItems.reduce(product => product.quantity += product.quantity);
+                totalItems = quantities + action.payload.quantity;
+                totalPrice = state.totalPrice + (action.payload.item.price*action.payload.quantity);
+            }
+            if(checkCartItems === undefined){
+                return {
+                    ...state,
+                    cartItems: [...state.cartItems, action.payload],
+                    totalItems: totalItems,
+                    totalPrice: totalPrice
+                }          
+            }else{
+                let index = state.cartItems.findIndex(product => product.item.id === item.id);
+                let newState = {...state}
+                console.log(action.payload.quantity)
+                newState.cartItems[index].quantity += action.payload.quantity
+                return newState;
+            }
          }
         case REMOVE_ITEM: {
             return {

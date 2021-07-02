@@ -1,18 +1,20 @@
 .cart-btn{
     margin-left: 1rem;
     height: 2.5rem;
-    .items-count{
-        width: 0.7rem;
-        height: 0.7rem;
-        background-color: red;
-        border-radius: 150%;
-        span{
-            color: white;
-            font-size: 0.6rem;
-            font-weight: 600;
-        }
-    }
+    width: 4rem;
     .cart-icon{
-        
+        align-self: center;
+    }
+    .items-count{
+        z-index: 2;
+        width: fit-content;
+        height: 0;
+        margin-left: 0.1rem;
+        span{ 
+            color: red;
+            font-size: 0.7rem;
+            font-weight: 600;
+            margin: 0;
+        }
     }
 }

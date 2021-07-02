@@ -9,13 +9,13 @@ const CartWidget = () => {
 
     return (
         <>
-            <Button variant="warning" className="cart-btn d-flex flex-column justify-content-center">
+            <Button variant="warning" className="cart-btn d-flex justify-content-center">
+                <FaShoppingCart className="cart-icon"/>
                 { cartItems.length > 0 && 
                 <div className="items-count d-flex justify-content-center">
                     <span>{cartItems.length}</span>
                 </div> 
                 }
-                <FaShoppingCart className="cart-icon"/>
             </Button>
         </>
     )

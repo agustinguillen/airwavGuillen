@@ -7,13 +7,19 @@ const CartState = ({children}) =>{
 
     const initialState = {
         showCart: false,
-        cartItems: []
+        cartItems: [],
+        totalItems: 0,
+        totalPrice: 0
     }
 
     const [state, dispatch] = useReducer(CartReducer, initialState);
 
-    const addToCart = (item) =>{
-        dispatch({type: ADD_TO_CART, payload: item})
+    const addToCart = (item, quantity) =>{
+        let itemAndQuantity = {
+                item: item,
+                quantity: quantity
+            }
+        dispatch({type: ADD_TO_CART, payload: itemAndQuantity})
     }
     
     const showHideCart = () =>{
@@ -28,6 +34,8 @@ const CartState = ({children}) =>{
         <CartContext.Provider value={{
             showCart: state.showCart,
             cartItems: state.cartItems,
+            totalItems: state.totalItems,
+            totalPrice: state.totalPrice,
             addToCart,
             showHideCart,
             removeItem
