@@ -1,4 +1,4 @@
-import { ADD_TO_CART, REMOVE_ITEM } from './../Types';
+import { ADD_TO_CART, REMOVE_ITEM, CLEAR_CART } from './../Types';
 
 const CartReducer = (state, action) =>{
     switch(action.type){
@@ -32,8 +32,16 @@ const CartReducer = (state, action) =>{
                     cartItems: state.cartItems.filter(e => e.item.id !== id),
                     totalItems: state.totalItems - quantity,
                     totalPrice: state.totalPrice - (item.price*quantity)
-                }     
-        }  
+            }     
+        }
+        case CLEAR_CART: {
+            return {
+                ...state,
+                cartItems: [],
+                totalItems: 0,
+                totalPrice: 0
+            } 
+        }
         default:
             return state
     }

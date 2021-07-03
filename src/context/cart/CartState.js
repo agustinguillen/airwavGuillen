@@ -1,7 +1,7 @@
 import { useReducer } from "react";
 import CartContext from './CartContext';
 import CartReducer from './CartReducer';
-import { ADD_TO_CART, REMOVE_ITEM } from './../Types';
+import { ADD_TO_CART, REMOVE_ITEM, CLEAR_CART } from './../Types';
 
 const CartState = ({children}) =>{
 
@@ -30,13 +30,18 @@ const CartState = ({children}) =>{
         dispatch({type: REMOVE_ITEM, payload: itemAndQuantity})
     }
 
+    const clear = () =>{
+        dispatch({type: CLEAR_CART})
+    }
+
     return (
         <CartContext.Provider value={{
             cartItems: state.cartItems,
             totalItems: state.totalItems,
             totalPrice: state.totalPrice,
             addToCart,
-            removeItem
+            removeItem,
+            clear
         }}>
             {children}
         </CartContext.Provider>

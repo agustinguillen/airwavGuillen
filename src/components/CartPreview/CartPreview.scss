@@ -1,0 +1,26 @@
+$yellow-orange: #ffc107;
+
+.cart-preview{
+    width: 250px;
+    height: fit-content;
+    max-height: 350px;
+    background-color: black;
+    color: whitesmoke;
+    position: absolute;
+    margin-top: 0.6rem;
+    border-radius: 25px;
+    z-index: 2;
+    .item-list{
+        padding: 0;
+        overflow: scroll;
+        height: fit-content;
+    }
+    .total-price{
+        position: absolute;
+        bottom: 10px;
+        align-self: center;
+        font-weight: 800;
+        font-size: large;
+        color: $yellow-orange;
+    }
+}
