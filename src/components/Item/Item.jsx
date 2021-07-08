@@ -10,25 +10,20 @@ const Item = ({id, productName, price, image, stock}) => {
         return (
             <>
                 <Link to={`/detail/${id}`} style={{textDecoration: 'none', color:'grey'}}>
-                    <Card style={{ width: '16em', margin: '2rem', borderRadius: '25px' }} className='item'
-                        onMouseEnter={()=>setHover(true)}
-                        onMouseLeave={()=>setHover(false)}
+                    <Card style={{ width: '14em', margin: '1rem', borderRadius: '25px' }} 
+                          className='item'
+                          onMouseEnter={()=>setHover(true)}
+                          onMouseLeave={()=>setHover(false)}
                     >
                         <div className="d-flex flex-column justify-content-center">
                             <Card.Img variant="top" src={image} style={{
                                 objectFit: 'cover',
-                                width: '15.9em',
-                                height: '15.9em',
+                                width: '13.9em',
+                                height: '13.9em',
                                 borderTopLeftRadius: '25px',
                                 borderTopRightRadius: '25px'
                             }}/>
                             <Card.Body>
-                                <Card.Title>{productName}</Card.Title>
-                                {hover && (
-                                    <Card.Text>
-                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-                                    </Card.Text>
-                                )}                                         
                                 <Card.Text style={{
                                     color: 'black', 
                                     fontWeight:'bold', 
@@ -37,6 +32,13 @@ const Item = ({id, productName, price, image, stock}) => {
                                 }}>
                                     ${price}
                                 </Card.Text>
+                                {hover && (
+                                    <Card.Text style={{
+                                        fontSize:'1rem'
+                                    }}>
+                                        {productName}
+                                    </Card.Text>
+                                )}                                                              
                             </Card.Body>
                         </div>
                     </Card>

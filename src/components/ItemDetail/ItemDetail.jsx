@@ -26,11 +26,8 @@ const ItemDetail = ({item}) => {
                     <div className="col-lg-7 text-center itemInfo">
                         <h4>{item?.name}</h4>
                         <p className="price">${item?.price}</p>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-                            Praesent in felis vehicula, tincidunt lectus ac, rutrum sapien. 
-                            Quisque varius sit amet sapien vitae egestas. 
-                            Nam id magna eu metus finibus finibus et sit amet magna. 
-                            Mauris nibh nunc, egestas vitae vehicula vel, sollicitudin nec tellus. 
+                        <p>
+                            {item?.description}
                         </p>
                         <ItemCount item={item} stock={item?.stock} initial='1' onAdd={onAdd}/>
                         {amount > 0 && 

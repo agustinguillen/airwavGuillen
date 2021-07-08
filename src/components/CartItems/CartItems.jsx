@@ -19,8 +19,8 @@ const CartItems = () =>{
                             <div className="d-flex justify-content-between">
                                     <div className="d-flex">
                                         <Card.Img src={cartItem.item.image} 
-                                                  style={{width: '7rem', 
-                                                  height: '7rem', 
+                                                  style={{width: '6rem', 
+                                                  height: '6rem', 
                                                   marginRight: '30px',
                                                   borderRadius: '25px'
                                                 }}
@@ -28,12 +28,12 @@ const CartItems = () =>{
                                         <div className="d-flex">
                                             <div>
                                                 <Card.Title>{cartItem.item.name}</Card.Title>
-                                                <Card.Text>lksajfklasjflkasjflksafjlaksfjslakf</Card.Text>
-                                                <Card.Text style={{fontWeight: '800', fontSize: 'large'}}>
+                                                <Card.Text style={{fontWeight: '700', fontSize: 'x-large'}}>
                                                         ${cartItem.item.price}
                                                         <span style={{
                                                             marginLeft: '10px',
-                                                            color: 'grey'
+                                                            color: 'grey',
+                                                            fontWeight: 500
                                                         }}>
                                                             x{cartItem.quantity}
                                                         </span>
