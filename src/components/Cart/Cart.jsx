@@ -2,12 +2,13 @@ import './Cart.scss';
 import { useContext } from 'react';
 import CartContext from './../../context/cart/CartContext';
 import CartItems from '../CartItems/CartItems';
+import CartForm from '../CartForm/CartForm';
 import { Button } from 'react-bootstrap';
 import { FaTrash } from 'react-icons/fa';
 import { Link } from 'react-router-dom'
 
 const Cart = () =>{
-    const {totalPrice, totalItems, clear} = useContext(CartContext);
+    const {totalPrice, totalItems, cartItems, clear} = useContext(CartContext);
 
     const clearCart = () =>{
         clear()
@@ -17,8 +18,8 @@ const Cart = () =>{
         <>
             <div className="cart-container mt-3">
                 <h3 className="text-center">Carrito de Compras</h3>
-                <div className="d-flex mt-5">
-                    <div className="col-lg-8 d-flex flex-column justify-content-center" style={{padding: '0 5rem'}}>
+                <div className="d-flex mt-3">
+                    <div className="col-lg-8 d-flex flex-column justify-content-start" style={{padding: '0.5rem 5rem'}}>
                     {
                         totalItems > 0 ?
                         <>
@@ -51,6 +52,9 @@ const Cart = () =>{
                             <p style={{fontWeight: '800', fontSize: 'x-large'}}>
                                 Precio Total: ${totalPrice}
                             </p>
+                            <div className="mr-5">
+                                <CartForm products={cartItems} totalPrice={totalPrice} />
+                            </div>
                         </div>
                     }   
                 </div>
