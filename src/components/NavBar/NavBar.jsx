@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom';
 const NavBar = () => {
     return (
         <>
-            <Navbar bg="light" expand="lg" className="navbar">
+            <Navbar bg="light" expand="lg" className="navbar" style={{position: 'sticky', top: '0', zIndex: '2'}}>
                 <Link to="/" className="navbar-brand d-flex">
                     <img src={Logo} alt="Logo de Airwav" className="logo"/>
                     <Navbar.Brand className="logo-brand">Airwav</Navbar.Brand>
@@ -21,6 +21,7 @@ const NavBar = () => {
                         <NavDropdown.Item as={Link} to="/products/instruments" className="menu-dropdown-item">Instrumentos</NavDropdown.Item>
                         <NavDropdown.Item as={Link} to="/products/pedals" className="menu-dropdown-item">Pedales</NavDropdown.Item>
                         <NavDropdown.Item as={Link} to="/products/production" className="menu-dropdown-item">Producción</NavDropdown.Item>
+                        <NavDropdown.Item as={Link} to="/" className="menu-dropdown-item">Todos</NavDropdown.Item>
                         </NavDropdown>
                         <Nav.Link as={Link} to="/contact" className="menu-item">
                             Contacto

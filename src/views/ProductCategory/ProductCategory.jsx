@@ -3,10 +3,10 @@ import { useParams } from 'react-router';
 
 function ProductCategory() {
     const { catId } = useParams();
-    console.log(catId)
+    
     return (
         <>
-            <ItemListContainer catId={catId}/>
+            <ItemListContainer catId={catId} />
         </>
     )
 }

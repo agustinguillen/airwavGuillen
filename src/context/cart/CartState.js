@@ -6,8 +6,8 @@ import { ADD_TO_CART, REMOVE_ITEM, CLEAR_CART } from './../Types';
 const CartState = ({children}) =>{
 
     const initialState = {
-        cartItems: [],
-        totalItems: 0,
+        cartItems: JSON.parse(localStorage.getItem('cart')) || [],
+        totalItems: JSON.parse(localStorage.getItem('totalItems')) || 0,
         totalPrice: 0
     }
 

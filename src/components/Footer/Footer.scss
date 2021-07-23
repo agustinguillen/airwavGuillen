@@ -1,0 +1,33 @@
+$yellow-orange: #ffc107;
+
+.footer-container {
+  .footer-column {
+    margin-top: 2rem;
+    .logo {
+      width: 2rem;
+      height: 2rem;
+      margin: 1vh 1vw 2vh 0;
+    }
+    .logo-brand {
+      font-size: x-large;
+      font-weight: bold;
+      font-family: "Roboto";
+      font-variant: small-caps;
+      letter-spacing: 0.5rem;
+      color: whitesmoke;
+    }
+    .footer-text {
+      font-family: "Roboto";
+      color: whitesmoke;
+    }
+    .link {
+      color: whitesmoke;
+      font-family: "Roboto";
+      margin-bottom: 0.3rem;
+      &:hover {
+        color: $yellow-orange;
+        text-decoration: none;
+      }
+    }
+  }
+}

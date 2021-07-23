@@ -1,14 +1,15 @@
-import { Button, Form, Modal } from "react-bootstrap";
-import {db} from './../../Firebase';
-import { useState, useContext } from "react";
-import CartContext from './../../context/cart/CartContext';
-import firebase from 'firebase/app';
+import { Button, Form, Modal, Alert } from "react-bootstrap"
+import {db} from './../../Firebase'
+import { useState, useContext } from "react"
+import CartContext from './../../context/cart/CartContext'
+import firebase from 'firebase/app'
 
 
 const CartForm = ({products, totalPrice}) => {
-    const {clear} = useContext(CartContext);
-    const [showModal, setShowModal] = useState(false);
-    const [orderKey, setOrderKey] = useState('');
+    const {clear} = useContext(CartContext)
+    const [showModal, setShowModal] = useState(false)
+    const [orderKey, setOrderKey] = useState('')
+    const [error, setError] = useState(false)
 
     const initialState = {
 		firstName: '',
@@ -29,7 +30,18 @@ const CartForm = ({products, totalPrice}) => {
         newOrder.lastName = formElements[1].value
         newOrder.phone = formElements[2].value
         newOrder.email = formElements[3].value
-        storeOrder(newOrder)
+        
+        let validEmail = newOrder.email !== '' && new RegExp(/[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,15}/g).test(newOrder.email);
+        let validPhone = newOrder.phone !== '' && new RegExp(/^(?:(?:00)?549?)?0?(?:11|[2368]\d)(?:(?=\d{0,2}15)\d{2})??\d{8}$/g).test(newOrder.phone);
+        let validFirstName = newOrder.name !== '' && new RegExp(/^[a-zA-Z ]+$/g).test(newOrder.name)
+        let validLastName = newOrder.name !== '' && new RegExp(/^[a-zA-Z ]+$/g).test(newOrder.lastName)
+
+        if(validEmail && validPhone && validFirstName && validLastName){
+            storeOrder(newOrder)
+        }else{
+            console.log('nononono')
+            setError(true)
+        }
     }
 
     const storeOrder = async (order) =>{
@@ -45,12 +57,25 @@ const CartForm = ({products, totalPrice}) => {
     }
 
     const finishPurchase = () =>{
+
+        db.collection("products").get().then(function(querySnapshot) {
+            querySnapshot.forEach(function(doc) {
+                let product = products.find(product => product.item.id === doc.id)
+                if(product !== null && product !== undefined){
+                    doc.ref.update({
+                        stock: firebase.firestore.FieldValue.increment(-Number(product.quantity))
+                    });
+                }
+            });
+        });
+
         clear()
         setShowModal(false)
     }
 
     return (
         <>
+            { error && <Alert variant="danger" onClose={() => setError(false)} dismissible>Revisa que tus datos ingresados sean válidos!</Alert>}
             <Form onSubmit={saveOrder} className="d-flex flex-column justify-content-start">
                 <Form.Group className="mb-3" controlId="firstName">
                     <Form.Label>Nombre</Form.Label>

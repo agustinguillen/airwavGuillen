@@ -10,6 +10,7 @@ body {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     background-color: rgb(230, 220, 175);
+    overflow-x: hidden;
 }
 
 ::-webkit-scrollbar{
@@ -25,3 +26,6 @@ body {
   background-color: black;
 }
 
+::-webkit-scrollbar-corner{
+  background-color: transparent;
+}

@@ -10,7 +10,7 @@ const Item = ({id, productName, price, image, stock}) => {
         return (
             <>
                 <Link to={`/detail/${id}`} style={{textDecoration: 'none', color:'grey'}}>
-                    <Card style={{ width: '14em', margin: '1rem', borderRadius: '25px' }} 
+                    <Card style={{ width: '14em', margin: '0.8rem', borderRadius: '25px'}} 
                           className='item'
                           onMouseEnter={()=>setHover(true)}
                           onMouseLeave={()=>setHover(false)}
@@ -27,14 +27,14 @@ const Item = ({id, productName, price, image, stock}) => {
                                 <Card.Text style={{
                                     color: 'black', 
                                     fontWeight:'bold', 
-                                    fontSize:'1.5rem', 
+                                    fontSize:'1.5rem',
                                     textDecoration:'none'
                                 }}>
                                     ${price}
                                 </Card.Text>
                                 {hover && (
                                     <Card.Text style={{
-                                        fontSize:'1rem'
+                                        fontSize:'0.8rem'
                                     }}>
                                         {productName}
                                     </Card.Text>

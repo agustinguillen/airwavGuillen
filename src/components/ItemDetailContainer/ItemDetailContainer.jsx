@@ -1,4 +1,3 @@
-import './ItemDetailContainer.scss';
 import ItemDetail from '../ItemDetail/ItemDetail';
 import { useEffect, useState } from 'react';
 import {db} from './../../Firebase';
@@ -9,18 +8,19 @@ const ItemDetailContainer = ({id}) => {
 
     const getProduct = () =>{
         db.collection('products').onSnapshot((querySnapshot)=>{
-            const docs = [];
-            querySnapshot.forEach((doc)=>{
-                docs.push({ ...doc.data(), id: doc.id });
+                const docs = [];
+                querySnapshot.forEach((doc)=>{
+                    docs.push({ ...doc.data(), id: doc.id });
+                })
+                
+                setProducts(docs)
             })
-            
-            setProducts(docs)
-        })
     }
 
-    useEffect(()=>{
-        getProduct()
+    useEffect(()=>{      
+            getProduct()     
     }, [])
+
 
     if(products.length > 0){
         product = products.find(x => x.id === id)

@@ -1,5 +1,6 @@
 import './App.scss';
 import NavBar from './components/NavBar/NavBar';
+import Footer from './components/Footer/Footer';
 import { BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 import Home from './views/Home/Home';
 import ProductCategory from './views/ProductCategory/ProductCategory';
@@ -11,7 +12,7 @@ import CartView from './views/CartView/CartView';
 function App() {
   return (
     <Router>
-        <NavBar></NavBar>
+        <NavBar />
         <Switch>
           <Route path="/" exact component={Home}/>
           <Route path="/contact" component={Contact}/>
@@ -20,6 +21,7 @@ function App() {
           <Route path="/products/:catId" component={ProductCategory}/>
           <Route path="/cart" component={CartView} />
         </Switch>
+        <Footer />
     </Router>
   );
 }
