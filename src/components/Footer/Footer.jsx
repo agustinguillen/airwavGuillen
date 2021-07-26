@@ -3,6 +3,11 @@ import { Link } from "react-router-dom";
 import Logo from "./../../assets/img/airwav.png";
 
 const Footer = () => {
+
+  function handleScroll(){
+    window.scrollTo({top: 0, behavior: 'smooth'})
+  }
+
   return (
     <>
       <div
@@ -25,27 +30,27 @@ const Footer = () => {
           </div>
         </div>
         <div className="col-lg-3 col-sm d-flex flex-column text-center footer-column">
-          <Link className="link" to="/products/accesories">
+          <Link className="link" to="/products/accesories" onClick={() => handleScroll()}>
             Accesorios
           </Link>
-          <Link className="link" to="/products/amplifiers">
+          <Link className="link" to="/products/amplifiers" onClick={() => handleScroll()}>
             Amplificadores
           </Link>
-          <Link className="link" to="/products/instruments">
+          <Link className="link" to="/products/instruments" onClick={() => handleScroll()}>
             Instrumentos
           </Link>
-          <Link className="link" to="/products/pedals">
+          <Link className="link" to="/products/pedals" onClick={() => handleScroll()}>
             Pedales
           </Link>
-          <Link className="link" to="/products/production">
+          <Link className="link" to="/products/production" onClick={() => handleScroll()}>
             Producción
           </Link>
         </div>
         <div className="col-lg-3 col-sm d-flex flex-column text-center footer-column">
-          <Link className="link" to="/contacto">
+          <Link className="link" to="/contacto" onClick={() => handleScroll()}>
             Contacto
           </Link>
-          <Link className="link" to="/about">
+          <Link className="link" to="/about" onClick={() => handleScroll()}>
             Quiénes Somos
           </Link>
         </div>

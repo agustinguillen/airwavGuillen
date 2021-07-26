@@ -44,10 +44,14 @@ const CartItems = () =>{
                                     <div style={{margin: '0.5rem 1rem'}}>
                                             <Button variant="outline-danger" 
                                                     className="btn-sm"
-                                                    style={{border: 'none'}}
+                                                    style={{border: 'none', 
+                                                            borderRadius: '100%',
+                                                            height: '2rem',
+                                                            width: '2rem'
+                                                    }}
                                                     onClick={()=>remove(cartItem.item, cartItem.quantity)}
                                             >
-                                                <FaTimes style={{margin: '0.4rem 0'}}/>
+                                                <FaTimes style={{margin: '0 0 0.2rem 0'}}/>
                                             </Button>
                                     </div>
                             </div>
