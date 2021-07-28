@@ -11,8 +11,8 @@ import CartContext from "../../context/cart/CartContext";
 import firebase, { db } from "../../Firebase";
 
 const NavBar = () => {
-  const userSession = JSON.parse(localStorage.getItem("session"));
-  const { cartItems, totalItems } = useContext(CartContext);
+  let userSession = JSON.parse(localStorage.getItem("session"));
+  const { cartItems, totalItems, addToCart, clear } = useContext(CartContext);
   const [user, setUser] = useState(userSession || "");
 
   const handleAuthentication = async (provider) => {
@@ -26,41 +26,73 @@ const NavBar = () => {
       cart: { cartItems: cartItems, totalItems: totalItems },
     };
     setUser(newUser);
-    saveUser(newUser);
-    localStorage.setItem("session", JSON.stringify(newUser));
+    checkUserDB(newUser);
   };
 
-  const saveUser = async (user) => {
+  const checkUserDB = async (userLogin) => {
+    await db.collection("users").onSnapshot((querySnapshot) => {
+      let res = querySnapshot.docs;
+      let users = [];
+      let loggedUser;
+      res.forEach((doc) => {
+        users.push({ ...doc.data(), id: doc.id });
+        loggedUser = users.filter((userDB) => userDB.email === userLogin.email);
+      });
+      if (!loggedUser.length) {
+        console.log("nuevo usuario")
+        saveUser(userLogin);
+      } else {
+        setUser(loggedUser[0]);
+        localStorage.setItem("session", JSON.stringify(loggedUser[0]));
+        loadUserCart(loggedUser[0]);
+      }
+    });
+  };
+
+  
+  const saveUser = async (userLogin) => {
     let doc = await db.collection("users").doc();
     doc
       .set({
-        ...user,
+        ...userLogin,
         id: doc.id,
-        created: firebase.firestore.Timestamp.fromDate(new Date())
+        created: firebase.firestore.Timestamp.fromDate(new Date()),
       })
       .then(() => {
-        setUser({...user, id: doc.id})
+        setUser({ ...userLogin, id: doc.id });
+        localStorage.setItem("session", JSON.stringify({ ...userLogin, id: doc.id }));
       })
       .catch(function (error) {
         console.error("Error adding document: ", error);
       });
   };
+  
+  const logOut = () => {
+    let userLogged = JSON.parse(localStorage.getItem("session"));
+    db.collection("users")
+    .doc(userLogged.id)
+    .update({
+        cart: { cartItems, totalItems },
+      })
+      .then(() => {
+        localStorage.clear();
+        setUser("");
+        clear();
+      })
+      .catch((err) => {
+        console.error(err);
+      });
+    };
 
-  const logOut = () =>{
-    db.collection('users').doc(user.id).update({
-      "cart": {cartItems, totalItems}
-    })
-    .then(()=>{
-      localStorage.clear()
-      setUser("")
-    })
-    .catch((err)=>{
-      console.error(err)
-    })
-  }
-
-  return (
-    <>
+    const loadUserCart = (user) =>{
+      let userCart = user.cart.cartItems;
+      userCart.forEach(e=>{
+        console.log(e)
+      })
+    }
+    
+    return (
+      <>
       <Navbar
         bg="light"
         expand="lg"

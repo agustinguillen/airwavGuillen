@@ -10,14 +10,15 @@ const CartForm = ({products, totalPrice}) => {
     const [showModal, setShowModal] = useState(false)
     const [orderKey, setOrderKey] = useState('')
     const [error, setError] = useState(false)
-
+    let user = JSON.parse(localStorage.getItem("session"))
     const initialState = {
 		firstName: '',
 		lastName: '',
 		phone: '',
         email: '',
         products: products,
-        totalPrice: totalPrice
+        totalPrice: totalPrice,
+        user: user.id || null
 	}
 
     const saveOrder = (e) =>{
@@ -33,8 +34,8 @@ const CartForm = ({products, totalPrice}) => {
         
         let validEmail = newOrder.email !== '' && new RegExp(/[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,15}/g).test(newOrder.email);
         let validPhone = newOrder.phone !== '' && new RegExp(/^(?:(?:00)?549?)?0?(?:11|[2368]\d)(?:(?=\d{0,2}15)\d{2})??\d{8}$/g).test(newOrder.phone);
-        let validFirstName = newOrder.name !== '' && new RegExp(/^[a-zA-Z ]+$/g).test(newOrder.name)
-        let validLastName = newOrder.name !== '' && new RegExp(/^[a-zA-Z ]+$/g).test(newOrder.lastName)
+        let validFirstName = newOrder.name !== '' && new RegExp(/^.+$/g).test(newOrder.name)
+        let validLastName = newOrder.name !== '' && new RegExp(/^.+$/g).test(newOrder.lastName)
 
         if(validEmail && validPhone && validFirstName && validLastName){
             storeOrder(newOrder)
