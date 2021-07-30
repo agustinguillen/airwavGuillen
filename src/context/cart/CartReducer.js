@@ -21,6 +21,7 @@ const CartReducer = (state, action) => {
 
       localStorage.setItem('nextCart', JSON.stringify(nextCart))
       localStorage.setItem('totalItems', state.totalItems + quantity)
+      localStorage.setItem('totalPrice', state.totalPrice + item.price * quantity)
 
       console.log(nextCart)
       console.log(quantity)
@@ -29,7 +30,7 @@ const CartReducer = (state, action) => {
         ...state,
         cartItems: nextCart,
         totalItems: state.totalItems + quantity,
-        totalPrice: state.totalPrice + item.price * quantity,
+        totalPrice: state.totalPrice + item.price * quantity
       };
     }
     case REMOVE_ITEM: {
@@ -38,7 +39,7 @@ const CartReducer = (state, action) => {
       localStorage.setItem('cart', JSON.stringify(items))
       localStorage.setItem('nextCart', JSON.stringify(items))
       localStorage.setItem('totalItems', state.totalItems - quantity)
-
+      localStorage.setItem('totalPrice', state.totalPrice - item.price * quantity)
       return {
         ...state,
         cartItems: items,
@@ -49,7 +50,7 @@ const CartReducer = (state, action) => {
     case LOAD_CART: {
       const { cartItems, totalItems } = action.payload;
       let prices = []; 
-      let total;
+      let total = 0;
       let items = cartItems
       for(const e of items){
         prices.push(e.item.price * e.quantity)
@@ -69,6 +70,7 @@ const CartReducer = (state, action) => {
       localStorage.setItem('cart', JSON.stringify([]))
       localStorage.setItem('nextCart', JSON.stringify([]))
       localStorage.setItem('totalItems', 0)
+      localStorage.setItem('totalPrice', 0)
       return {
         ...state,
         cartItems: [],

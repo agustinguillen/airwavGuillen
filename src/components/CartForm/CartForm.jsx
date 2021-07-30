@@ -11,6 +11,10 @@ const CartForm = ({products, totalPrice}) => {
     const [orderKey, setOrderKey] = useState('')
     const [error, setError] = useState(false)
     let user = JSON.parse(localStorage.getItem("session")) || null
+    let userId;
+    if(user){
+        userId = user.id
+    }
     const initialState = {
 		firstName: '',
 		lastName: '',
@@ -18,7 +22,7 @@ const CartForm = ({products, totalPrice}) => {
         email: '',
         products: products,
         totalPrice: totalPrice,
-        user: user.id
+        user: userId
 	}
 
     const saveOrder = (e) =>{

@@ -6,9 +6,9 @@ import { ADD_TO_CART, REMOVE_ITEM, LOAD_CART, CLEAR_CART } from './../Types';
 const CartState = ({children}) =>{
 
     const initialState = {
-        cartItems: JSON.parse(localStorage.getItem('cart')) || [],
+        cartItems: JSON.parse(localStorage.getItem('nextCart')) || [],
         totalItems: JSON.parse(localStorage.getItem('totalItems')) || 0,
-        totalPrice: 0
+        totalPrice: JSON.parse(localStorage.getItem('totalPrice')) || 0
     }
 
     const [state, dispatch] = useReducer(CartReducer, initialState);
