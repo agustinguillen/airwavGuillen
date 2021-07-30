@@ -12,7 +12,7 @@ import firebase, { db } from "../../Firebase";
 
 const NavBar = () => {
   let userSession = JSON.parse(localStorage.getItem("session"));
-  const { cartItems, totalItems, addToCart, clear } = useContext(CartContext);
+  const { cartItems, totalItems, loadCart, clear } = useContext(CartContext);
   const [user, setUser] = useState(userSession || "");
 
   const handleAuthentication = async (provider) => {
@@ -25,6 +25,8 @@ const NavBar = () => {
       phone: res.phoneNumber,
       cart: { cartItems: cartItems, totalItems: totalItems },
     };
+    localStorage.setItem("cart", JSON.stringify(cartItems));
+    localStorage.setItem("totalItems", totalItems);
     setUser(newUser);
     checkUserDB(newUser);
   };
@@ -43,8 +45,8 @@ const NavBar = () => {
         saveUser(userLogin);
       } else {
         setUser(loggedUser[0]);
-        localStorage.setItem("session", JSON.stringify(loggedUser[0]));
         loadUserCart(loggedUser[0]);
+        localStorage.setItem("session", JSON.stringify(loggedUser[0]));
       }
     });
   };
@@ -78,6 +80,8 @@ const NavBar = () => {
         localStorage.clear();
         setUser("");
         clear();
+        localStorage.setItem("cart", JSON.stringify(cartItems));
+        localStorage.setItem("totalItems", totalItems);
       })
       .catch((err) => {
         console.error(err);
@@ -85,10 +89,9 @@ const NavBar = () => {
     };
 
     const loadUserCart = (user) =>{
-      let userCart = user.cart.cartItems;
-      userCart.forEach(e=>{
-        console.log(e)
-      })
+      
+      loadCart(user.cart.cartItems, user.cart.totalItems)
+
     }
     
     return (
@@ -104,7 +107,7 @@ const NavBar = () => {
           <Navbar.Brand className="logo-brand">Airwav</Navbar.Brand>
         </Link>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
-        <Navbar.Collapse id="basic-navbar-nav">
+        <Navbar.Collapse id="basic-navbar-nav" className="d-flex flex-wrap">
           <Nav className="mr-auto menu">
             <NavDropdown
               title="Productos"

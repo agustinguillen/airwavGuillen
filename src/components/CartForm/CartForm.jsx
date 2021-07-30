@@ -10,7 +10,7 @@ const CartForm = ({products, totalPrice}) => {
     const [showModal, setShowModal] = useState(false)
     const [orderKey, setOrderKey] = useState('')
     const [error, setError] = useState(false)
-    let user = JSON.parse(localStorage.getItem("session"))
+    let user = JSON.parse(localStorage.getItem("session")) || null
     const initialState = {
 		firstName: '',
 		lastName: '',
@@ -18,7 +18,7 @@ const CartForm = ({products, totalPrice}) => {
         email: '',
         products: products,
         totalPrice: totalPrice,
-        user: user.id || null
+        user: user.id
 	}
 
     const saveOrder = (e) =>{
@@ -40,7 +40,6 @@ const CartForm = ({products, totalPrice}) => {
         if(validEmail && validPhone && validFirstName && validLastName){
             storeOrder(newOrder)
         }else{
-            console.log('nononono')
             setError(true)
         }
     }

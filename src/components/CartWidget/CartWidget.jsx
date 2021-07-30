@@ -7,7 +7,7 @@ import CartPreview from '../CartPreview/CartPreview';
 import { Link } from 'react-router-dom';
 
 const CartWidget = () => {
-    const { cartItems, totalItems } = useContext(CartContext);
+    const { totalItems } = useContext(CartContext);
     const [hover, setHover] = useState(false)
 
     return (
@@ -17,14 +17,14 @@ const CartWidget = () => {
                     <Button variant="warning" 
                             className="cart-btn d-flex justify-content-center">
                         <FaShoppingCart className="cart-icon"/>
-                        { cartItems.length > 0 && 
+                        { totalItems > 0 && 
                         <div className="items-count d-flex justify-content-center">
                             <span>{totalItems}</span>
                         </div> 
                         }
                     </Button>
                 </Link>
-                {hover && (<CartPreview onMouseOver={()=>setHover(true)} />)}
+                {hover && totalItems>0 && (<CartPreview onMouseOver={()=>setHover(true)} />)}
             </div>
         </>
     )

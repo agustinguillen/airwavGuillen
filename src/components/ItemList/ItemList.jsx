@@ -8,19 +8,18 @@ const ItemList = ({catId}) => {
     const [products, setProducts] = useState([]);
     let items;
     
-    let getProducts = () =>{
-        db.collection('products').onSnapshot((querySnapshot)=>{
-            const docs = [];
-            querySnapshot.forEach((doc)=>{
-                docs.push({ ...doc.data(), id: doc.id });
-            })
-            setProducts(docs)
-        })
-    }
-
     useEffect(()=>{
-            getProducts()
-    }, [])
+        (async () => {
+            await db.collection('products').onSnapshot((querySnapshot)=>{
+                const docs = [];
+                querySnapshot.forEach((doc)=>{
+                    docs.push({ ...doc.data(), id: doc.id });
+                })
+                setProducts(docs)
+            });
+        })();
+        return ()=>setProducts([]);
+    }, []);
 
     if(products.length > 0 && catId !== undefined){
         items = products.filter(product => product.category === catId && product.stock > 0)

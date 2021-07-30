@@ -6,21 +6,19 @@ const ItemDetailContainer = ({id}) => {
     const [products, setProducts] = useState([]);
     let product;
 
-    const getProduct = () =>{
-        db.collection('products').onSnapshot((querySnapshot)=>{
+    useEffect(()=>{    
+        (async () => {  
+            await db.collection('products').onSnapshot((querySnapshot)=>{
                 const docs = [];
                 querySnapshot.forEach((doc)=>{
                     docs.push({ ...doc.data(), id: doc.id });
                 })
                 
                 setProducts(docs)
-            })
-    }
-
-    useEffect(()=>{      
-            getProduct()     
-    }, [])
-
+            });
+        })();
+        return ()=>setProducts([]);        
+    }, []);
 
     if(products.length > 0){
         product = products.find(x => x.id === id)

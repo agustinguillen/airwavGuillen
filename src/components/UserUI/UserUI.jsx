@@ -11,7 +11,7 @@ const UserUI = ({ user, logOut }) => {
   return (
     <>
       {user !== undefined && (
-        <div className="userUI-container d-flex justify-content-center">
+        <div className="userUI-container d-flex justify-content-center mx-3">
           <Image src={user?.image} className="userUI-image" roundedCircle />
           <DropdownButton
             id="dropdown-basic-button"
@@ -22,7 +22,7 @@ const UserUI = ({ user, logOut }) => {
             <Dropdown.Item as={Link} to="/orders">
               Mis Compras
             </Dropdown.Item>
-            <Dropdown.Item onClick={() => closeSession()}>
+            <Dropdown.Item onClick={() => closeSession()} as={Link} to="/">
               Cerrar Sesión
             </Dropdown.Item>
           </DropdownButton>

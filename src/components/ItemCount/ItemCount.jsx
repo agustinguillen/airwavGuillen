@@ -5,7 +5,7 @@ import { FaPlus, FaMinus } from 'react-icons/fa';
 import { useContext } from 'react';
 import { CartContext } from './../../context/cart/CartContext'
 
-const Item = ({item, stock, initial, onAdd}) => {
+const ItemCount = ({item, stock, initial, onAdd}) => {
     const { addToCart } = useContext(CartContext);
     const [amount, setAmount] = useState(Number(initial));
 
@@ -26,4 +26,4 @@ const Item = ({item, stock, initial, onAdd}) => {
     )
 }
 
-export default Item;
+export default ItemCount;
