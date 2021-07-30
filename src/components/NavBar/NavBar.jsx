@@ -89,7 +89,9 @@ const NavBar = () => {
     };
 
     const loadUserCart = (user) =>{
-      
+      localStorage.setItem("cart", JSON.stringify(user.cart.cartItems));
+      localStorage.setItem("nextCart", JSON.stringify(user.cart.cartItems));
+      localStorage.setItem("totalItems", user.cart.totalItems);
       loadCart(user.cart.cartItems, user.cart.totalItems)
 
     }

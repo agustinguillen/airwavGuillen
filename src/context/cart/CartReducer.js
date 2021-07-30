@@ -23,9 +23,6 @@ const CartReducer = (state, action) => {
       localStorage.setItem('totalItems', state.totalItems + quantity)
       localStorage.setItem('totalPrice', state.totalPrice + item.price * quantity)
 
-      console.log(nextCart)
-      console.log(quantity)
-
       return {
         ...state,
         cartItems: nextCart,
@@ -58,7 +55,7 @@ const CartReducer = (state, action) => {
       for(const price of prices){
         total += price 
       }
-      
+      localStorage.setItem('totalPrice', total)
       return {
         ...state,
         cartItems: items,
