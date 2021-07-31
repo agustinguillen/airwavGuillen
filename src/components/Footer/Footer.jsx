@@ -10,26 +10,16 @@ const Footer = () => {
 
   return (
     <>
-      <div
-        className="d-flex justify-content-around flex-wrap footer-container p-3"
-        style={{
-          backgroundColor: "black",
-          position: "relative",
-          bottom: "0",
-          height: "35vh",
-          width: "100vw",
-          marginTop: "50vh",
-        }}
-      >
-        <div className="col-lg-3 col-sm footer-column">
+      <div className="d-flex justify-content-around flex-wrap footer-container">
+        <div className="col-lg-3 col-md footer-column">
           <img src={Logo} alt="Logo de Airwav" className="logo" />
-          <span className="logo-brand">Airwav</span>
+          <span className="brand">Airwav</span>
           <div className="d-flex flex-column text-start mt-3">
             <p className="footer-text">Teléfono: +549 11 12345678</p>
             <p className="footer-text">Email: ventas@airwav.com</p>
           </div>
         </div>
-        <div className="col-lg-3 col-sm d-flex flex-column text-center footer-column">
+        <div className="col-lg-3 col-md d-flex flex-column text-center footer-column">
           <Link className="link" to="/products/accesories" onClick={() => handleScroll()}>
             Accesorios
           </Link>
@@ -46,7 +36,7 @@ const Footer = () => {
             Producción
           </Link>
         </div>
-        <div className="col-lg-3 col-sm d-flex flex-column text-center footer-column">
+        <div className="col-lg-3 col-md d-flex flex-column text-center footer-column">
           <Link className="link" to="/contacto" onClick={() => handleScroll()}>
             Contacto
           </Link>

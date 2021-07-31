@@ -155,11 +155,11 @@ const NavBar = () => {
                 Todos
               </NavDropdown.Item>
             </NavDropdown>
-            <Nav.Link as={Link} to="/contact" className="menu-item">
-              Contacto
-            </Nav.Link>
             <Nav.Link as={Link} to="/about" className="menu-item">
               Quiénes somos
+            </Nav.Link>
+            <Nav.Link as={Link} to="/contact" className="menu-item">
+              Contacto
             </Nav.Link>
           </Nav>
           <CartWidget />

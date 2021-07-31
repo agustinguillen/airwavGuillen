@@ -1,16 +1,16 @@
-import Cart from './../../components/Cart/Cart';
 import { motion } from 'framer-motion';
+import About from '../../components/About/About'
 
-function CartView() {
+function AboutPage() {
     return (
         <motion.div 
             exit={{opacity: 0}} 
             animate={{opacity: 1}} 
             initial={{opacity:0}}
         >
-            <Cart />
+            <About />
         </motion.div>
     )
 }
 
-export default CartView;
+export default AboutPage;

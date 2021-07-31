@@ -17,15 +17,15 @@ const ItemDetail = ({ item }) => {
       {item.id !== undefined ? (
         <div className="text-center">
           <h3>Detalle de Producto</h3>
-          <div className="itemDetail d-flex">
-            <div className="col-lg-5">
+          <div className="itemDetail d-flex flex-wrap">
+            <div className="col-lg-5 col-md">
               <img
                 src={item?.image}
                 alt="Imagen del producto"
                 className="itemImage"
               />
             </div>
-            <div className="col-lg-7 text-center itemInfo">
+            <div className="col-lg-7 col-md text-center itemInfo">
               <h4>{item?.name}</h4>
               <p className="price">${item?.price}</p>
               <p className="mx-5">{item?.description}</p>

@@ -9,11 +9,9 @@ import reportWebVitals from './reportWebVitals';
 import CartState from './context/cart/CartState';
 
 ReactDOM.render(
-  <React.StrictMode>
     <CartState>
       <App />
-    </CartState>
-  </React.StrictMode>,
+    </CartState>,
   document.getElementById('root')
 );
 

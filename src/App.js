@@ -4,25 +4,28 @@ import Footer from './components/Footer/Footer';
 import { BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 import Home from './views/Home/Home';
 import ProductCategory from './views/ProductCategory/ProductCategory';
-import Contact from './views/Contact/Contact';
-import About from './views/About/About';
+import ContactPage from './views/ContactPage/ContactPage';
+import AboutPage from './views/AboutPage/AboutPage';
 import ProductDetail from './views/ProductDetail/ProductDetail';
 import CartView from './views/CartView/CartView';
 import Orders from './components/Orders/Orders';
+import { AnimatePresence } from 'framer-motion';
 
 function App() {
   return (
     <Router>
         <NavBar />
-        <Switch>
-          <Route path="/" exact component={Home}/>
-          <Route path="/contact" component={Contact}/>
-          <Route path="/about" component={About}/>
-          <Route path="/detail/:id" component={ProductDetail}/>
-          <Route path="/products/:catId" component={ProductCategory}/>
-          <Route path="/cart" component={CartView} />
-          <Route path="/orders" component={Orders} />
-        </Switch>
+        <AnimatePresence>
+          <Switch>
+            <Route path="/" exact component={Home}/>
+            <Route path="/contact" component={ContactPage}/>
+            <Route path="/about" component={AboutPage}/>
+            <Route path="/detail/:id" component={ProductDetail}/>
+            <Route path="/products/:catId" component={ProductCategory}/>
+            <Route path="/cart" component={CartView} />
+            <Route path="/orders" component={Orders} />
+          </Switch>
+        </AnimatePresence>
         <Footer />
     </Router>
   );

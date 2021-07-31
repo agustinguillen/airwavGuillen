@@ -5,10 +5,10 @@ import Loading from "./../Loading/Loading";
 
 const Orders = () => {
   let user = JSON.parse(localStorage.getItem("session"));
-  const [loading, setLoading] = useState(true)
+  const [loading, setLoading] = useState(true);
   const [orders, setOrders] = useState("");
   const orderStyle = {
-    margin: "1rem 7rem",
+    margin: "1vh 7vw",
   };
 
   useEffect(() => {
@@ -20,7 +20,7 @@ const Orders = () => {
           orders.push({ ...doc.data(), id: doc.id });
         });
         setOrders(orders);
-        setLoading(false)
+        setLoading(false);
       });
     })();
     return () => setOrders([]);
@@ -28,14 +28,11 @@ const Orders = () => {
 
   return (
     <>
-      {loading ? 
-      (
+      {loading ? (
         <div className="d-flex justify-content-center">
           <Loading />
         </div>
-      )
-      : 
-      (
+      ) : (
         <>
           {orders
             .filter((order) => order.user === user.id)
@@ -93,8 +90,7 @@ const Orders = () => {
               </Card>
             ))}
         </>
-      )
-      }
+      )}
     </>
   );
 };

@@ -1,0 +1,34 @@
+.about-container{
+    .row{
+        .photo-container{
+            img{
+                width: 85%;
+            }
+        }
+        .description-container{
+            .logo{
+                width: 2rem;
+                height: 2rem;
+                margin: 1vh 1vw 2vh 0
+            }
+            .brand{
+                font-size: x-large;
+                font-weight: bold;
+                font-family: "Roboto";
+                font-variant: small-caps;
+                letter-spacing: 0.5rem;
+            }
+            p{
+                font-family: "Roboto";
+            }
+        }
+        span{
+            div{
+                label{
+                    font-weight: bold;
+                    font-family: "Roboto";
+                }
+            }
+        }
+    }
+}
