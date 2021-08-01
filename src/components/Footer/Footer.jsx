@@ -39,7 +39,7 @@ const Footer = () => {
           </Link>
         </div>
         <div className="col-lg-3 col-md d-flex flex-column text-center footer-column">
-          <Link className="link" to="/contacto" onClick={() => handleScroll()}>
+          <Link className="link" to="/contact" onClick={() => handleScroll()}>
             Contacto
           </Link>
           <Link className="link" to="/about" onClick={() => handleScroll()}>
