@@ -14,6 +14,8 @@ const CartForm = ({ products, totalPrice }) => {
   let userId;
   if (user) {
     userId = user.id;
+  }else{
+    userId = null;
   }
   const initialState = {
     firstName: "",
@@ -160,12 +162,15 @@ const CartForm = ({ products, totalPrice }) => {
             <p>
               El código de tu orden de compra es el siguiente:&nbsp;<strong>{orderKey}</strong>
             </p>
-            <p>
-              Podes ver tus ordenes en&nbsp; 
-              <Link to="/orders" onClick={() => finishPurchase()}>
-                Mis Ordenes
-              </Link>
-            </p>
+            {
+              userId !== null &&
+              <p>
+                Podes ver tus ordenes en&nbsp; 
+                <Link to="/orders" onClick={() => finishPurchase()}>
+                  Mis Ordenes
+                </Link>
+              </p>
+            }
           </Modal.Body>
 
           <Modal.Footer>
