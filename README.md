@@ -1,11 +1,25 @@
 # AIRWAV - ECOMMERCE - React JS - CODERHOUSE
 
-## Public libraries used in project
+## Public libraries used in the project
 
+### react
+^17.0.2
+https://es.reactjs.org/
 ### react-bootstrap
+^1.6.1
+https://react-bootstrap.github.io/
 ### framer-motion
+^4.1.17
+https://www.framer.com/motion/
 ### react-router-dom
+^5.2.0
+https://reactrouter.com/web/guides/quick-start
 ### react-icons
+^4.2.0
+https://react-icons.github.io/react-icons/
+### firebase
+^8.7.0
+https://firebase.google.com/
 
 # Getting Started with Create React App
 
@@ -57,6 +71,7 @@ See the section about [deployment](https://facebook.github.io/create-react-app/d
 ## Camada 14220 - CODERHOUSE
 Profesor: Daniel Di Salvo
 Tutora: Etel Soledad Perez
+
 
 
 
