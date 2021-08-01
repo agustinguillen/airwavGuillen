@@ -41,7 +41,6 @@ const NavBar = () => {
         loggedUser = users.filter((userDB) => userDB.email === userLogin.email);
       });
       if (!loggedUser.length) {
-        console.log("nuevo usuario")
         saveUser(userLogin);
       } else {
         setUser(loggedUser[0]);
@@ -51,7 +50,6 @@ const NavBar = () => {
     });
   };
 
-  
   const saveUser = async (userLogin) => {
     let doc = await db.collection("users").doc();
     doc
@@ -62,18 +60,21 @@ const NavBar = () => {
       })
       .then(() => {
         setUser({ ...userLogin, id: doc.id });
-        localStorage.setItem("session", JSON.stringify({ ...userLogin, id: doc.id }));
+        localStorage.setItem(
+          "session",
+          JSON.stringify({ ...userLogin, id: doc.id })
+        );
       })
       .catch(function (error) {
         console.error("Error adding document: ", error);
       });
   };
-  
+
   const logOut = () => {
     let userLogged = JSON.parse(localStorage.getItem("session"));
     db.collection("users")
-    .doc(userLogged.id)
-    .update({
+      .doc(userLogged.id)
+      .update({
         cart: { cartItems, totalItems },
       })
       .then(() => {
@@ -86,25 +87,32 @@ const NavBar = () => {
       .catch((err) => {
         console.error(err);
       });
-    };
+  };
 
-    const loadUserCart = (user) =>{
-      localStorage.setItem("cart", JSON.stringify(user.cart.cartItems));
-      localStorage.setItem("nextCart", JSON.stringify(user.cart.cartItems));
-      localStorage.setItem("totalItems", user.cart.totalItems);
-      loadCart(user.cart.cartItems, user.cart.totalItems)
+  const loadUserCart = (user) => {
+    localStorage.setItem("cart", JSON.stringify(user.cart.cartItems));
+    localStorage.setItem("nextCart", JSON.stringify(user.cart.cartItems));
+    localStorage.setItem("totalItems", user.cart.totalItems);
+    loadCart(user.cart.cartItems, user.cart.totalItems);
+  };
 
-    }
-    
-    return (
-      <>
+  function handleScroll() {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }
+
+  return (
+    <>
       <Navbar
         bg="light"
         expand="lg"
         className="navbar"
         style={{ position: "sticky", top: "0", zIndex: "2" }}
       >
-        <Link to="/" className="navbar-brand d-flex">
+        <Link
+          to="/"
+          className="navbar-brand d-flex"
+          onClick={() => handleScroll()}
+        >
           <img src={Logo} alt="Logo de Airwav" className="logo" />
           <Navbar.Brand className="logo-brand">Airwav</Navbar.Brand>
         </Link>
@@ -120,6 +128,7 @@ const NavBar = () => {
                 as={Link}
                 to="/products/accesories"
                 className="menu-dropdown-item"
+                onClick={() => handleScroll()}
               >
                 Accesorios
               </NavDropdown.Item>
@@ -127,6 +136,7 @@ const NavBar = () => {
                 as={Link}
                 to="/products/amplifiers"
                 className="menu-dropdown-item"
+                onClick={() => handleScroll()}
               >
                 Amplificadores
               </NavDropdown.Item>
@@ -134,6 +144,7 @@ const NavBar = () => {
                 as={Link}
                 to="/products/instruments"
                 className="menu-dropdown-item"
+                onClick={() => handleScroll()}
               >
                 Instrumentos
               </NavDropdown.Item>
@@ -141,6 +152,7 @@ const NavBar = () => {
                 as={Link}
                 to="/products/pedals"
                 className="menu-dropdown-item"
+                onClick={() => handleScroll()}
               >
                 Pedales
               </NavDropdown.Item>
@@ -148,17 +160,33 @@ const NavBar = () => {
                 as={Link}
                 to="/products/production"
                 className="menu-dropdown-item"
+                onClick={() => handleScroll()}
               >
                 Producción
               </NavDropdown.Item>
-              <NavDropdown.Item as={Link} to="/" className="menu-dropdown-item">
+              <NavDropdown.Item
+                as={Link}
+                to="/"
+                className="menu-dropdown-item"
+                onClick={() => handleScroll()}
+              >
                 Todos
               </NavDropdown.Item>
             </NavDropdown>
-            <Nav.Link as={Link} to="/about" className="menu-item">
+            <Nav.Link
+              as={Link}
+              to="/about"
+              className="menu-item"
+              onClick={() => handleScroll()}
+            >
               Quiénes somos
             </Nav.Link>
-            <Nav.Link as={Link} to="/contact" className="menu-item">
+            <Nav.Link
+              as={Link}
+              to="/contact"
+              className="menu-item"
+              onClick={() => handleScroll()}
+            >
               Contacto
             </Nav.Link>
           </Nav>

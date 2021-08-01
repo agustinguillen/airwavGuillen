@@ -1,26 +1,26 @@
-h3{
-    font-family: 'Roboto';
-    font-variant: small-caps;
-    letter-spacing: 0.5rem;
+h3 {
+  font-family: "Roboto";
+  font-variant: small-caps;
+  letter-spacing: 0.5rem;
 }
-.itemDetail{
-    .itemImage{
-        width: 70%;
-        margin-top: 5%;
-        border-radius: 25px;
+.itemDetail {
+  .itemImage {
+    width: 70%;
+    margin-top: 5%;
+    border-radius: 25px;
+  }
+  .itemInfo {
+    h4 {
+      font-size: x-large;
+      font-weight: 700;
+      margin-top: 5%;
     }
-    .itemInfo{
-        h4{
-            font-size: x-large;
-            font-weight: 700;
-            margin-top: 5%;
-        }
-        p{
-            font-size: medium;
-        }
-        .price{
-            font-size: x-large;
-            font-weight: 700;
-        }
+    p {
+      font-size: medium;
     }
+    .price {
+      font-size: x-large;
+      font-weight: 700;
+    }
+  }
 }

@@ -11,9 +11,11 @@ const Footer = () => {
   return (
     <>
       <div className="d-flex justify-content-around flex-wrap footer-container">
-        <div className="col-lg-3 col-md footer-column">
-          <img src={Logo} alt="Logo de Airwav" className="logo" />
-          <span className="brand">Airwav</span>
+        <div className="col-lg-3 col-md footer-column d-flex flex-column justify-content-center">
+          <div>
+            <img src={Logo} alt="Logo de Airwav" className="logo" />
+            <span className="brand">Airwav</span>
+          </div>
           <div className="d-flex flex-column text-start mt-3">
             <p className="footer-text">Teléfono: +549 11 12345678</p>
             <p className="footer-text">Email: ventas@airwav.com</p>

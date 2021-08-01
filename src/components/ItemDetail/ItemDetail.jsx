@@ -1,6 +1,5 @@
 import "./ItemDetail.scss";
 import ItemCount from "../ItemCount/ItemCount";
-import Loading from "../Loading/Loading";
 import { useState } from "react";
 import { Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
@@ -14,10 +13,10 @@ const ItemDetail = ({ item }) => {
 
   return (
     <>
-      {item.id !== undefined ? (
+      {item !== undefined ? (
         <div className="text-center">
           <h3>Detalle de Producto</h3>
-          <div className="itemDetail d-flex flex-wrap">
+          <div className="itemDetail d-flex flex-wrap mt-5">
             <div className="col-lg-5 col-md">
               <img
                 src={item?.image}
@@ -27,7 +26,7 @@ const ItemDetail = ({ item }) => {
             </div>
             <div className="col-lg-7 col-md text-center itemInfo">
               <h4>{item?.name}</h4>
-              <p className="price">${item?.price}</p>
+              <p className="price">${item?.price.toLocaleString('es-AR')}</p>
               <p className="mx-5">{item?.description}</p>
               <p>Unidades en stock: {item?.stock}</p>
               <ItemCount
@@ -47,7 +46,19 @@ const ItemDetail = ({ item }) => {
           </div>
         </div>
       ) : (
-        <Loading />
+        <div className="text-center">
+          <h3>Detalle de Producto</h3>
+          <div className="itemDetail d-flex flex-wrap justify-content-center mt-5">
+            <p style={{ fontWeight: "800", fontSize: "x-large" }}>
+              El item seleccionado no existe <br/>Encontrá lo que buscas en
+              nuestro
+              <Link to="/" style={{ textDecoration: "none" }}>
+                {" "}
+                catálogo
+              </Link>
+            </p>
+          </div>
+        </div>
       )}
     </>
   );

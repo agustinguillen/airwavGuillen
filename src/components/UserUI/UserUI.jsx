@@ -3,7 +3,6 @@ import { Image, Dropdown, DropdownButton } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
 const UserUI = ({ user, logOut }) => {
-
   const closeSession = () => {
     logOut();
   };
