@@ -36,8 +36,7 @@ https://firebase.google.com/
 ![airwav_about](https://user-images.githubusercontent.com/78324600/127786348-665dfa17-3428-4098-87bf-997091bddb57.jpg)
 
 ## 14220 - CODERHOUSE
-Professor: Daniel Di Salvo
-Tutor: Etel Soledad Perez
+Professor: Daniel Di Salvo || Tutor: Etel Soledad Perez
 
 # Getting Started with Create React App
 
