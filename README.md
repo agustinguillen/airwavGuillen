@@ -1,4 +1,13 @@
-# AIRWAV - ECOMMERCE PLATFORM - CODERHOUSE'S REACT JS FINAL PROJECT 
+# AIRWAV - ECOMMERCE - React JS - CODERHOUSE
+
+## Public libraries used in project
+
+### react-bootstrap
+### framer-motion
+### react-router-dom
+### react-icons
+
+# Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
@@ -45,6 +54,9 @@ See the section about [deployment](https://facebook.github.io/create-react-app/d
 ## About Screen
 ![airwav_about](https://user-images.githubusercontent.com/78324600/127786348-665dfa17-3428-4098-87bf-997091bddb57.jpg)
 
+## Camada 14220 - CODERHOUSE
+Profesor: Daniel Di Salvo
+Tutora: Etel Soledad Perez
 
 
 
