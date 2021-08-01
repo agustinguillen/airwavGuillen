@@ -34,7 +34,7 @@ See the section about [deployment](https://facebook.github.io/create-react-app/d
 **Note: this is a one-way operation. Once you `eject`, you can’t go back!**
 
 ## Home Screen
-![airwav_home](https://user-images.githubusercontent.com/78324600/127786263-9a694f59-a0b8-4adb-810a-4010d5641f19.jpg)
+![airwav_home](https://user-images.githubusercontent.com/78324600/127786291-95168f8d-b370-4aa0-8134-9ac12e92f0e7.jpg)
 
 
 
