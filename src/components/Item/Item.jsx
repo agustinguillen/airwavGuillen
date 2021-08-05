@@ -6,11 +6,16 @@ import { useState } from "react";
 const Item = ({ id, productName, price, image, stock }) => {
   const [hover, setHover] = useState(false);
 
+  function handleScroll(){
+    window.scrollTo({top: 0, behavior: 'smooth'})
+  }
+
   return (
     <>
       <Link
         to={`/detail/${id}`}
         style={{ textDecoration: "none", color: "grey" }}
+        onClick={() => handleScroll()}
       >
         <Card
           style={{ width: "14em", margin: "0.8rem", borderRadius: "25px" }}

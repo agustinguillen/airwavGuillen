@@ -3,9 +3,8 @@ import { Link } from "react-router-dom";
 import Logo from "./../../assets/img/airwav.png";
 
 const Footer = () => {
-
-  function handleScroll(){
-    window.scrollTo({top: 0, behavior: 'smooth'})
+  function handleScroll() {
+    window.scrollTo({ top: 0, behavior: "smooth" });
   }
 
   return (
@@ -21,24 +20,44 @@ const Footer = () => {
             <p className="footer-text">Email: ventas@airwav.com</p>
           </div>
         </div>
-        <div className="col-lg-3 col-md d-flex flex-column text-center footer-column">
-          <Link className="link" to="/products/accesories" onClick={() => handleScroll()}>
+        <div className="col-lg-3 col-md d-lg-flex flex-column text-center footer-column">
+          <Link
+            className="link"
+            to="/products/accesories"
+            onClick={() => handleScroll()}
+          >
             Accesorios
           </Link>
-          <Link className="link" to="/products/amplifiers" onClick={() => handleScroll()}>
+          <Link
+            className="link"
+            to="/products/amplifiers"
+            onClick={() => handleScroll()}
+          >
             Amplificadores
           </Link>
-          <Link className="link" to="/products/instruments" onClick={() => handleScroll()}>
+          <Link
+            className="link"
+            to="/products/instruments"
+            onClick={() => handleScroll()}
+          >
             Instrumentos
           </Link>
-          <Link className="link" to="/products/pedals" onClick={() => handleScroll()}>
+          <Link
+            className="link"
+            to="/products/pedals"
+            onClick={() => handleScroll()}
+          >
             Pedales
           </Link>
-          <Link className="link" to="/products/production" onClick={() => handleScroll()}>
+          <Link
+            className="link"
+            to="/products/production"
+            onClick={() => handleScroll()}
+          >
             Producción
           </Link>
         </div>
-        <div className="col-lg-3 col-md d-flex flex-column text-center footer-column">
+        <div className="col-lg-3 col-md d-lg-flex flex-column text-center footer-column">
           <Link className="link" to="/contact" onClick={() => handleScroll()}>
             Contacto
           </Link>

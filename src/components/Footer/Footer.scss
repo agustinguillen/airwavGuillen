@@ -36,5 +36,8 @@ $yellow-orange: #ffc107;
         text-decoration: none;
       }
     }
+    @media (max-width: 992px){
+      display: none;
+    }
   }
 }
