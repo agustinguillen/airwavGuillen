@@ -18,7 +18,7 @@ const CartItems = () => {
           style={{ borderRadius: "25px", marginBottom: "2px" }}
         >
           <div className="d-flex justify-content-between">
-            <div className="d-flex">
+            <div className="d-flex flex-wrap">
               <Card.Img
                 src={cartItem.item.image}
                 style={{
@@ -29,7 +29,7 @@ const CartItems = () => {
                 }}
               />
               <div className="d-flex">
-                <div>
+                <div className="mx-3">
                   <Card.Title>{cartItem.item.name}</Card.Title>
                   <Card.Text style={{ fontWeight: "700", fontSize: "x-large" }}>
                     ${cartItem.item.price.toLocaleString('es-AR')}

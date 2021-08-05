@@ -17,10 +17,10 @@ const Cart = () => {
     <>
       <div className="cart-container mt-3">
         <h3 className="text-center">Carrito de Compras</h3>
-        <div className="d-flex mt-3">
+        <div className="d-flex flex-wrap mt-3">
           <div
-            className="col-lg-8 d-flex flex-column justify-content-start"
-            style={{ padding: "0.5rem 5rem" }}
+            className="col-lg-8 col-md d-flex flex-column justify-content-start"
+            style={{ padding: "0.5rem 3rem" }}
           >
             {totalItems > 0 ? (
               <>
@@ -52,7 +52,7 @@ const Cart = () => {
             )}
           </div>
           {totalItems > 0 && (
-            <div className="col-lg-4">
+            <div className="col-lg-4 col-md">
               <p style={{ fontWeight: "800", fontSize: "x-large" }}>
                 Precio Total: ${totalPrice.toLocaleString('es-AR')}
               </p>
