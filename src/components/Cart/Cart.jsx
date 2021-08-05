@@ -29,7 +29,7 @@ const Cart = () => {
                   <div>
                     <Button
                       variant="warning"
-                      className="btn-sm align-center"
+                      className="mb-5 btn-sm align-center"
                       onClick={() => clearCart()}
                     >
                       <FaTrash style={{ margin: "0.5rem" }} />
@@ -53,10 +53,10 @@ const Cart = () => {
           </div>
           {totalItems > 0 && (
             <div className="col-lg-4 col-md">
-              <p style={{ fontWeight: "800", fontSize: "x-large" }}>
+              <p style={{ fontWeight: "800", fontSize: "x-large", marginBottom: "1.5rem" }}>
                 Precio Total: ${totalPrice.toLocaleString('es-AR')}
               </p>
-              <div className="mr-5">
+              <div className="mr-lg-5">
                 <CartForm products={cartItems} totalPrice={totalPrice} />
               </div>
             </div>

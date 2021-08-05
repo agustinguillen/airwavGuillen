@@ -11,7 +11,7 @@ const Footer = () => {
   return (
     <>
       <div className="d-flex justify-content-around flex-wrap footer-container">
-        <div className="col-lg-3 col-md footer-column d-flex flex-column justify-content-center">
+        <div className="col-lg-3 col-md footer-column d-flex flex-column justify-content-center mx-3">
           <div>
             <img src={Logo} alt="Logo de Airwav" className="logo" />
             <span className="brand">Airwav</span>
