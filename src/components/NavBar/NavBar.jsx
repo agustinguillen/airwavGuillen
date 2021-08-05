@@ -118,80 +118,80 @@ const NavBar = () => {
           <Navbar.Brand className="logo-brand">Airwav</Navbar.Brand>
         </Link>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
-        <Navbar.Collapse id="basic-navbar-nav" >
-          <div className="d-flex flex-wrap">
-            <Nav className="mr-auto menu">
-              <NavDropdown
-                title="Productos"
-                id="basic-nav-dropdown"
-                className="menu-dropdown menu-item"
-              >
-                <NavDropdown.Item
-                  as={Link}
-                  to="/products/accesories"
-                  className="menu-dropdown-item"
-                  onClick={() => handleScroll()}
-                >
-                  Accesorios
-                </NavDropdown.Item>
-                <NavDropdown.Item
-                  as={Link}
-                  to="/products/amplifiers"
-                  className="menu-dropdown-item"
-                  onClick={() => handleScroll()}
-                >
-                  Amplificadores
-                </NavDropdown.Item>
-                <NavDropdown.Item
-                  as={Link}
-                  to="/products/instruments"
-                  className="menu-dropdown-item"
-                  onClick={() => handleScroll()}
-                >
-                  Instrumentos
-                </NavDropdown.Item>
-                <NavDropdown.Item
-                  as={Link}
-                  to="/products/pedals"
-                  className="menu-dropdown-item"
-                  onClick={() => handleScroll()}
-                >
-                  Pedales
-                </NavDropdown.Item>
-                <NavDropdown.Item
-                  as={Link}
-                  to="/products/production"
-                  className="menu-dropdown-item"
-                  onClick={() => handleScroll()}
-                >
-                  Producción
-                </NavDropdown.Item>
-                <NavDropdown.Item
-                  as={Link}
-                  to="/"
-                  className="menu-dropdown-item"
-                  onClick={() => handleScroll()}
-                >
-                  Todos
-                </NavDropdown.Item>
-              </NavDropdown>
-              <Nav.Link
+        <Navbar.Collapse id="basic-navbar-nav">
+          <Nav className="mr-auto menu">
+            <NavDropdown
+              title="Productos"
+              id="basic-nav-dropdown"
+              className="menu-dropdown menu-item"
+            >
+              <NavDropdown.Item
                 as={Link}
-                to="/about"
-                className="menu-item"
+                to="/products/accesories"
+                className="menu-dropdown-item"
                 onClick={() => handleScroll()}
               >
-                Quiénes somos
-              </Nav.Link>
-              <Nav.Link
+                Accesorios
+              </NavDropdown.Item>
+              <NavDropdown.Item
                 as={Link}
-                to="/contact"
-                className="menu-item"
+                to="/products/amplifiers"
+                className="menu-dropdown-item"
                 onClick={() => handleScroll()}
               >
-                Contacto
-              </Nav.Link>
-            </Nav>
+                Amplificadores
+              </NavDropdown.Item>
+              <NavDropdown.Item
+                as={Link}
+                to="/products/instruments"
+                className="menu-dropdown-item"
+                onClick={() => handleScroll()}
+              >
+                Instrumentos
+              </NavDropdown.Item>
+              <NavDropdown.Item
+                as={Link}
+                to="/products/pedals"
+                className="menu-dropdown-item"
+                onClick={() => handleScroll()}
+              >
+                Pedales
+              </NavDropdown.Item>
+              <NavDropdown.Item
+                as={Link}
+                to="/products/production"
+                className="menu-dropdown-item"
+                onClick={() => handleScroll()}
+              >
+                Producción
+              </NavDropdown.Item>
+              <NavDropdown.Item
+                as={Link}
+                to="/"
+                className="menu-dropdown-item"
+                onClick={() => handleScroll()}
+              >
+                Todos
+              </NavDropdown.Item>
+            </NavDropdown>
+            <Nav.Link
+              as={Link}
+              to="/about"
+              className="menu-item"
+              onClick={() => handleScroll()}
+            >
+              Quiénes somos
+            </Nav.Link>
+            <Nav.Link
+              as={Link}
+              to="/contact"
+              className="menu-item"
+              onClick={() => handleScroll()}
+            >
+              Contacto
+            </Nav.Link>
+          </Nav>
+          <div className="d-flex cart-user">
             <CartWidget />
             {user === "" ? (
               <Button
@@ -199,7 +199,7 @@ const NavBar = () => {
                 className="btn-menu"
                 onClick={() => handleAuthentication(googleProvider)}
               >
-                Iniciar Sesión con Google
+                Iniciar Sesión
               </Button>
             ) : (
               <UserUI user={user} logOut={logOut} />

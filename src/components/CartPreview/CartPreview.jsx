@@ -6,7 +6,7 @@ const CartPreview = () => {
   const { cartItems, totalPrice } = useContext(CartContext);
   return (
     <>
-      <div className="cart-preview d-flex flex-column">
+      <div className="d-xs-none cart-preview d-flex flex-column">
         <h5 className="text-center mt-2">Carrito de Compras</h5>
         <ul className="item-list">
           {cartItems.map((cartItem) => (
