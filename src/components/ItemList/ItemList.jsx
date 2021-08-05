@@ -31,7 +31,7 @@ const ItemList = ({ catId }) => {
   return (
     <>
       {products.length > 0 ? (
-        <div className="d-flex justify-content-start flex-wrap mx-5">
+        <div className="d-flex justify-content-center flex-wrap mx-5">
           {items.map((product) => (
             <Item
               key={product?.id}
